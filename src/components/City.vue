@@ -31,6 +31,7 @@ export default {
                 onSnapshot(q, (querySnapshot) => {
                     querySnapshot.docChanges().forEach(async (city) => {
                         await deleteDoc(doc(db, "cities", city.doc.id));
+                        location.reload();
                     })
                 });
             }, 300)
